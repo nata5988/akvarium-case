@@ -1,0 +1,210 @@
+
+/* Her vil jeg lave en commit */
+body{
+    background-image: url("../img/baggrund.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Her vil jeg lave en commit */
+.skattekiste {
+    position: absolute;
+    bottom: 20px;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 330px;
+    height: auto;
+}
+
+
+/* Her vil jeg lave en commit */
+.krabbe {
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 270px;
+    height: auto;
+}
+
+
+/* Her vil jeg lave en commit */
+.bubbles-chest {
+    position: absolute;
+    bottom:150px;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 250px;
+}
+
+
+.bubbles-small-1 {
+    position: absolute;
+    bottom: 400px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+}
+
+.bubbles-small-2 {
+    position: absolute;
+    bottom: 550px;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
+.bubbles-small-3 {
+    position: absolute;
+    bottom: 400px;
+    left: 85%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
+.pink-coral {
+    position: absolute;
+    bottom: 120px;
+    left: 67%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: auto;
+}
+
+.yellow-coral-1 {
+    position: absolute;
+    bottom: 80px;
+    left: 80%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: auto;
+}
+
+.yellow-coral-2 {
+    position: absolute;
+    bottom: 80px;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
+.moving-coral {
+    position: absolute;
+    bottom: 85px;
+    left: 95%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: auto;
+    animation: moveCoral 3s ease-in-out infinite alternate;
+}
+
+.green-seaweed {
+    position: absolute;
+    bottom: 140px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: auto;
+    z-index: -1;
+}
+
+.palle {
+    position: absolute;
+    bottom: 200px;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: auto;
+}
+
+.blob {
+    position: absolute;
+    bottom: 300px;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: auto;
+}
+
+.nemo {
+    position: absolute;
+    bottom: 500px;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
+.dory {
+    position: absolute;
+    bottom: 600px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: auto;
+
+
+    animation: move-dory-right-and-left 8s ease-in-out infinite ;
+}
+
+/* Laver bevægelsen med start og slut punkter*/
+
+@keyframes move-dory-right-and-left {
+    
+    /* Procenterne viser hvor langt i animations processen vi er, altså ift. tiden animationen varer */
+
+    0% {
+        left: 10%;  
+        /* Left fortæller om at objektet er placeret 10% fra venstre kanten */
+        transform: scaleX(1);
+        /* scaleX spejlvender så dory kigger mod højre */
+        
+    }
+
+    15% {
+        transform: scaleX(1) translateY(-50px); 
+        /* TranslateY giver fisken et lille hop */
+    }
+
+    30% {
+        transform: scaleX(1) translateY(50px);
+    }
+
+    45% {
+        /* sørger for at fisken først vender sig mod slutningen af retningen */
+        transform: scaleX(1); 
+        
+    }
+    50% {
+        left: 70%;
+
+         /*Spejlvender Dory igen, så den svømmer den anden vej igen  */
+        transform: scaleX(-1); 
+    }
+
+    65% {
+        transform: scaleX(-1) translateY(-50px);
+    }
+
+    75% {
+        transform: scaleX(-1) translateY(50px);
+    }
+
+    95% {
+        
+        /* sørger for at fisken først vender sig mod slutningen af retningen */
+        transform: scaleX(-1); 
+    }
+    100% {
+        left: 10%;             /* Er tilbage ved starten */
+        transform: scaleX(1);  /* Vender sig om igen */
+    }
+}
+
+/* Commit det ovenfor ^ */
+
