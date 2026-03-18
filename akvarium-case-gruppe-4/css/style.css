@@ -1,3 +1,5 @@
+:root
+--
 
 /* Her vil jeg lave en commit */
 body{
@@ -118,7 +120,7 @@ body{
     bottom: 500px;
     left: 70%;
     transform: translateX(-50%);
-    width: 150px;
+    width: 350px;
     height: auto;
     animation: move-nemo-right-and-left 10s ease-in-out infinite ;
 }
@@ -351,62 +353,63 @@ body{
 
 /* Laver bevægelsen med start og slut punkter til .blob*/
 
+
 @keyframes move-blob-left-and-right {
     
 
     0% {
-        left: 10%;  
-        transform: scaleX(-1);
-
+        left: 80%;  
+        transform: scaleX(1);
         
     }
 
     15% {
-        transform: scaleX(-1) translateY(-20px); 
+        transform: scaleX(1) translateY(-20px); 
 
     }
 
     30% {
-        transform: scaleX(-1) translateY(30px);
+        transform: scaleX(1) translateY(30px);
 
     }
 
     45% {
 
-        transform: scaleX(-1); 
+        transform: scaleX(1); 
 
         
     }
     50% {
-        left: 70%;
-    transform: scaleX(-1);
+        left: 20%;
+    transform: scaleX(1);
     }
         
     
 
     65% {
-        transform: scaleX(1) translateY(-10px);
+        transform: scaleX(-1) translateY(-10px);
     
     }
 
     75% {
-        transform: scaleX(1) translateY(20px);
+        transform: scaleX(-1) translateY(20px);
     }
 
     95% {
         
 
-        transform: scaleX(1); 
+        transform: scaleX(-1); 
     }
     100% {
-        left: 10%;             
-        transform: scaleX(-1); 
-        transform: rotate(180deg);
+        left: 80%;             
+        transform: scaleX(1); 
     }
 }
 
 
 /* Commit det ovenfor ^ */
+
+    
 
 
 .krabbe {
@@ -439,6 +442,56 @@ body{
     }
 }
 
+
+/* ---------------------------------------------------------------------------- */
+/* Talebobbel afsnit ---------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+.text-felt-to{
+ position: absolute;
+    bottom: 200px;
+    left: 15%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 240px;
+    height: auto;
+    opacity: 0;
+
+   animation: show-text 18s ease-in-out infinite;
+    animation-delay: 5.5s;
+}
+
+@keyframes show-text {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+
+    40%{
+        opacity: 1;
+    }
+    
+    50%{
+        opacity: 1;
+    }
+
+    65%{
+        opacity: 0;
+    }
+    
+    90% {
+        opacity: 0;
+    }
+}
+
+/* Commit */
+
+
+
+
+/* Containeren der holder dem ved siden af hinanden */
 .aquarium-popup {
     display: flex;
     align-items: center;
@@ -472,17 +525,12 @@ body{
     cursor: pointer;
     color: #333;
 }
-.popup-fish-img {
-    width: 800px !important; /* Gør fisken rigtig stor */
-    height: auto;
-    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2));
-}
 #tooltip {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: transparent; /* Fjern den hvide baggrund fra før */
+    background: blue; /* Fjern den hvide baggrund fra før */
     border: none;
     display: none;
     z-index: 3000;
@@ -507,15 +555,8 @@ body{
    pointer-events: none;
    z-index: 9999;
    display: none;
-   /* NATASJA COMMIT
-    flex-direction: column; /* Eller 'row' hvis de skal stå side om side */
-    align-items: center;
-    padding: 10px;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 8px;
-    text-align: center;
-} 
+   font-family: "Cherry-Bomb-One";
+}
 
 .tooltip img {
     max-width: 100px; /* Juster størrelsen på fisken i kortet her */

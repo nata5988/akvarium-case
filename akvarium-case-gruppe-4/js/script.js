@@ -60,7 +60,8 @@ const fishInfo = [
             elem.addEventListener("click", () => {
                // Opretter HTML-strengen med bilens detaljer
                const imageSrc = elem.getAttribute("src");
-// NATASJA COMMIT
+
+// !NATASJA COMMIT!//
              const fishDetails = `
     <div class="aquarium-popup">
         <img src="${imageSrc}" class="popup-fish-img">
@@ -71,6 +72,7 @@ const fishInfo = [
         </div>
     </div>
 `;
+// !NATASJA COMMIT STOPPER HER!//
                // Kalder showTooltip funktionen med bilens detaljer
                showTooltip(fishDetails);
                elem.classList.toggle("paused")
@@ -121,7 +123,7 @@ document.querySelectorAll(".palle").forEach((elem) => {
 //EMILIE COMMITS STOPPER HER//
 //----------------------------------//
 
-// Natasja Commit//
+// !NATASJA COMMIT! //
 fishInfo.forEach((fish) => {
     document.querySelectorAll("." + fish.className).forEach((elem) => {
         elem.addEventListener("click", () => {
@@ -145,3 +147,4 @@ fishInfo.forEach((fish) => {
         });
     });
 });
+// NATASJA COMMIT STOPPER HER //
