@@ -18,14 +18,7 @@ body{
 
 
 /* Her vil jeg lave en commit */
-.krabbe {
-    position: absolute;
-    bottom: 20px;
-    left: 25%;
-    transform: translateX(-50%);
-    width: 270px;
-    height: auto;
-}
+
 
 
 /* Her vil jeg lave en commit */
@@ -113,23 +106,12 @@ body{
     z-index: -1;
 }
 
-.palle {
-    position: absolute;
-    bottom: 200px;
-    left: 75%;
-    transform: translateX(-50%);
-    width: 250px;
-    height: auto;
-}
 
-.blob {
-    position: absolute;
-    bottom: 300px;
-    left: 20%;
-    transform: translateX(-50%);
-    width: 280px;
-    height: auto;
-}
+
+/* ---------------------------------------------------------------------------- */
+/* Nemo afsnit ---------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
 
 .nemo {
     position: absolute;
@@ -138,41 +120,34 @@ body{
     transform: translateX(-50%);
     width: 150px;
     height: auto;
+    animation: move-nemo-right-and-left 10s ease-in-out infinite ;
 }
 
-.dory {
-    position: absolute;
-    bottom: 600px;
-    left: 30%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: auto;
+/* Laver bevægelsen med start og slut punkter til .nemo*/
 
-
-    animation: move-dory-right-and-left 8s ease-in-out infinite ;
-}
-
-/* Laver bevægelsen med start og slut punkter*/
-
-@keyframes move-dory-right-and-left {
+@keyframes move-nemo-right-and-left {
     
     /* Procenterne viser hvor langt i animations processen vi er, altså ift. tiden animationen varer */
 
     0% {
         left: 10%;  
         /* Left fortæller om at objektet er placeret 10% fra venstre kanten */
+        bottom: 500px;
+        /* Bottom bruges til at flytte rundt på fisken, så den kan svømme op/ned  */
         transform: scaleX(1);
-        /* scaleX spejlvender så dory kigger mod højre */
+        /* scaleX kan bruges til at f.eks spejlvende fisken */
         
     }
 
     15% {
-        transform: scaleX(1) translateY(-50px); 
-        /* TranslateY giver fisken et lille hop */
+        bottom: 400px;
+        transform: scaleX(1) translateY(-20px); 
+        /* TranslateY giver fisken et lille hop nedad */
     }
 
     30% {
-        transform: scaleX(1) translateY(50px);
+        transform: scaleX(1) translateY(30px);
+        /* TranslateY giver fisken et lille hop opad */
     }
 
     45% {
@@ -183,12 +158,85 @@ body{
     50% {
         left: 70%;
 
-         /*Spejlvender Dory igen, så den svømmer den anden vej igen  */
+         /*Spejlvender fisken igen, så den svømmer den anden vej igen  */
         transform: scaleX(-1); 
     }
 
     65% {
-        transform: scaleX(-1) translateY(-50px);
+        bottom: 150px;
+        transform: scaleX(-1) translateY(-10px);
+    }
+
+    75% {
+        transform: scaleX(-1) translateY(20px);
+    }
+
+    95% {
+        
+        /* sørger for at fisken først vender sig mod slutningen af retningen */
+        transform: scaleX(-1); 
+    }
+    100% {
+        left: 10%;             /* Er tilbage ved starten */
+        transform: scaleX(1);  /* Vender sig om igen */
+    }
+}
+
+
+/* ---------------------------------------------------------------------------- */
+/* Dory afsnit ---------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+.dory {
+    position: absolute;
+    bottom: 600px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: auto;
+
+
+    animation: move-dory-right-and-left 9s ease-in-out infinite ;
+}
+
+/* Laver bevægelsen med start og slut punkter til .dory*/
+
+@keyframes move-dory-right-and-left {
+    
+    /* Procenterne viser hvor langt i animations processen vi er, altså ift. tiden animationen varer */
+
+    0% {
+        left: 10%;  
+        /* Left fortæller om at objektet er placeret 10% fra venstre kanten */
+        transform: scaleX(1);
+        /* scaleX spejlvender så fisken kigger mod højre */
+        
+    }
+
+    15% {
+        transform: scaleX(1) translateY(-30px); 
+        /* TranslateY giver fisken et lille hop nedad */
+    }
+
+    30% {
+        transform: scaleX(1) translateY(50px);
+        /* TranslateY giver fisken et lille hop opad */
+    }
+
+    45% {
+        /* sørger for at fisken først vender sig mod slutningen af retningen */
+        transform: scaleX(1); 
+        
+    }
+    50% {
+        left: 70%;
+
+         /*Spejlvender fisken igen, så den svømmer den anden vej igen  */
+        transform: scaleX(-1); 
+    }
+
+    65% {
+        transform: scaleX(-1) translateY(-30px);
     }
 
     75% {
@@ -206,5 +254,280 @@ body{
     }
 }
 
+
+/* ---------------------------------------------------------------------------- */
+/* Palle afsnit ---------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+
+.palle {
+    position: absolute;
+    bottom: 200px;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: auto;
+    animation: move-palle-around 15s ease-in-out infinite ;
+} 
+
+/* Laver bevægelsen med start og slut punkter til .palle*/
+
+@keyframes move-palle-around {
+    
+    /* Procenterne viser hvor langt i animations processen vi er, altså ift. tiden animationen varer */
+
+    0% {
+        left: 10%;  
+        bottom: 200px;
+        /* Left fortæller om at objektet er placeret 10% fra venstre kanten */
+        transform: scaleX(1);
+
+        
+    }
+
+    15% {
+        bottom: 400px; 
+        /* Bruger bottom til at flytte fisken op og ned */
+        transform: scaleX(1) translateY(-20px); 
+        /* TranslateY giver fisken et lille hop nedad */
+    }
+
+    30% {
+        transform: scaleX(1) translateY(30px);
+        /* TranslateY giver fisken et lille hop opad */
+    }
+
+    45% {
+        /* sørger for at fisken først vender sig mod slutningen af retningen */
+        transform: scaleX(1); 
+        
+    }
+    50% {
+        left: 70%;
+        bottom: 600px;
+         /*Spejlvender fisken, så den svømmer den anden vej igen  */
+        transform: scaleX(-1); 
+    }
+
+    65% {
+        transform: scaleX(-1) translateY(-10px);
+    }
+
+    75% {
+        transform: scaleX(-1) translateY(20px);
+    }
+
+    95% {
+        
+        /* sørger for at fisken først vender sig om igen, mod slutningen af retningen */
+        transform: scaleX(-1); 
+    }
+    100% {
+        left: 10%;             /* Er tilbage ved starten */
+        transform: scaleX(1);  /* Vender sig om igen */
+    }
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------------- */
+/* Blob afsnit ---------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+
+.blob {
+    position: absolute;
+    bottom: 300px;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: auto;
+
+ animation: move-blob-left-and-right 13s ease-in-out infinite;
+}
+
+
+/* Laver bevægelsen med start og slut punkter til .blob*/
+
+@keyframes move-blob-left-and-right {
+    
+
+    0% {
+        left: 10%;  
+        transform: scaleX(-1);
+
+        
+    }
+
+    15% {
+        transform: scaleX(-1) translateY(-20px); 
+
+    }
+
+    30% {
+        transform: scaleX(-1) translateY(30px);
+
+    }
+
+    45% {
+
+        transform: scaleX(-1); 
+
+        
+    }
+    50% {
+        left: 70%;
+    transform: scaleX(-1);
+    }
+        
+    
+
+    65% {
+        transform: scaleX(1) translateY(-10px);
+    
+    }
+
+    75% {
+        transform: scaleX(1) translateY(20px);
+    }
+
+    95% {
+        
+
+        transform: scaleX(1); 
+    }
+    100% {
+        left: 10%;             
+        transform: scaleX(-1); 
+        transform: rotate(180deg);
+    }
+}
+
+
 /* Commit det ovenfor ^ */
 
+
+.krabbe {
+    position: absolute;
+    bottom: 20px;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 270px;
+    height: auto;
+
+    animation: make-crab-jump 7s ease-in-out infinite;
+}
+
+@keyframes make-crab-jump {
+    
+    0% { 
+        transform: translateY(0);
+    }
+
+    5% {
+        transform: translateY(-40px);
+    }
+
+    10%{
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.aquarium-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 90vw; /* Gør den bredere så den ligner billedet */
+    max-width: 1100px;
+    pointer-events: auto;
+}
+.blue-bubble {
+    background-color: #8cd3f5; /* Den lyseblå farve fra dit billede */
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+}
+.blue-bubble p {
+    color: #000;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Eller en lignende "rund" font */
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+}
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+.popup-fish-img {
+    width: 800px !important; /* Gør fisken rigtig stor */
+    height: auto;
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2));
+}
+#tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent; /* Fjern den hvide baggrund fra før */
+    border: none;
+    display: none;
+    z-index: 3000;
+}
+/* EMILIE COMMIT STARTER HER */
+.tooltip {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: blue;
+   color: #fff;
+   padding: 18px 20px;
+   border-radius: 12px;
+   font-size: 20px;
+   line-height: 1.5;
+   width: 420px;
+   max-width: 90vw;
+   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+   opacity: 0;
+   transition: opacity 0.25s ease;
+   pointer-events: none;
+   z-index: 9999;
+   display: none;
+   /* NATASJA COMMIT
+    flex-direction: column; /* Eller 'row' hvis de skal stå side om side */
+    align-items: center;
+    padding: 10px;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px;
+    text-align: center;
+} 
+
+.tooltip img {
+    max-width: 100px; /* Juster størrelsen på fisken i kortet her */
+    height: auto;
+}
+
+.tooltip.is-visible {
+   opacity: 1;
+}
+/* EMILIE COMMIT STOPPER HER */
+
+/*Natasja Commit*/
+.paused {
+    animation-play-state: paused !important;
+}

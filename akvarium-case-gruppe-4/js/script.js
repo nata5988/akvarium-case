@@ -26,9 +26,122 @@ const fishInfo = [
 
 
 
+//----------------------------------//
+//ALT NEDEN FOR ER FORSKELLIGE COMMITS FRA EMILIE//
+//----------------------------------//
 
-// Finder teksten til Blob
-const blobData = fishInfo.find(fish => fish.className === "blob");
+ // finder tooltip id og gemmer det i en variabel
+   const tooltip = document.getElementById("tooltip");
 
-// Skriver teksten ind i <p class="blob"></p>
-document.querySelector(".blob").textContent = blobData.info;
+// Funktion der viser tooltip med biloplysninger
+   // Parameter: html = den tekst indeholdende html-tags som vi vil vise i tooltip'en
+   function showTooltip(html) {
+      // Tjekker om tooltip-elementet eksisterer i DOM'en
+      if (tooltip) {
+         // Indsætter teksten i tooltip'en
+         tooltip.innerHTML = html;
+         // Gør tooltip'en synlig med css klassen
+         tooltip.classList.add("is-visible");
+         tooltip.style.display = "block";
+
+         // Sætter en timer til at skjule tooltip'en efter 8 sekunder
+         setTimeout( function() {
+            // Fjerner css klassen så tooltip'en skjules igen
+            tooltip.classList.remove("is-visible");
+         },8000);
+      }
+   }
+   
+// Gennemløber info i array
+   fishInfo.forEach((fish) => {
+      // Finder alle HTML-elementer med den aktuelle bils className
+      document.querySelectorAll("." + fish.className).forEach((elem) => {
+            // Tilføjer mouseover event listener til hvert element
+            elem.addEventListener("click", () => {
+               // Opretter HTML-strengen med bilens detaljer
+               const imageSrc = elem.getAttribute("src");
+// NATASJA COMMIT
+             const fishDetails = `
+    <div class="aquarium-popup">
+        <img src="${imageSrc}" class="popup-fish-img">
+        
+        <div class="blue-bubble">
+            <div class="close-icon" onclick="document.getElementById('tooltip').style.display='none'">×</div>
+            <p>${fish.info}</p>
+        </div>
+    </div>
+`;
+               // Kalder showTooltip funktionen med bilens detaljer
+               showTooltip(fishDetails);
+               elem.classList.toggle("paused")
+            });
+
+      });
+   });
+
+    // Hent DOM Elementer 
+   const getBlob = document.getElementsByClassName("blob");
+   const getDory = document.getElementsByClassName("dory");
+   const getNemo = document.getElementsByClassName("nemo");
+   const getPalle = document.getElementsByClassName("palle");
+
+    
+
+const soundBlob = new Audio("audio/blob.m4a");
+const soundNemo = new Audio("audio/nemo.m4a");
+const soundDory = new Audio("audio/dory.m4a");
+const soundPalle = new Audio("audio/palle.m4a");
+
+document.querySelectorAll(".blob").forEach((elem) => {
+   elem.addEventListener("click", () => {
+      soundBlob.play();
+   });
+});
+
+document.querySelectorAll(".nemo").forEach((elem) => {
+   elem.addEventListener("click", () => {
+      soundNemo.play();
+   });
+});
+
+document.querySelectorAll(".dory").forEach((elem) => {
+   elem.addEventListener("click", () => {
+      soundDory.play();
+   });
+});
+
+document.querySelectorAll(".palle").forEach((elem) => {
+   elem.addEventListener("click", () => {
+      soundPalle.play();
+   });
+});
+
+
+//----------------------------------//
+//EMILIE COMMITS STOPPER HER//
+//----------------------------------//
+
+// Natasja Commit//
+fishInfo.forEach((fish) => {
+    document.querySelectorAll("." + fish.className).forEach((elem) => {
+        elem.addEventListener("click", () => {
+            // Hent stien til billedet fra det element, der blev klikket på
+            const imageSrc = elem.getAttribute("src");
+
+            // Tilføj billedet til din HTML-streng
+            const fishDetails = `
+                <div class="tooltip-content">
+                    <img src="${imageSrc}" alt="${fish.art}" style="width: 50px; height: auto; display: block; margin-bottom: 5px;">
+                    <strong>${fish.art}</strong><br>
+                    ${fish.info}
+                </div>
+            `;
+
+            // Vis tooltip med både billede og tekst
+            showTooltip(fishDetails);
+
+            // Stopper fisken (hvis du har tilføjet .paused i CSS)
+            elem.classList.toggle("paused");
+        });
+    });
+});
